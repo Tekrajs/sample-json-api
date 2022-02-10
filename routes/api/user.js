@@ -13,7 +13,7 @@ router.get("/users", async (req, res) => {
   }
 });
 
-router.post("/registration", async function (req, res, next) {
+router.post("/users/registration", async function (req, res, next) {
   try {
     let { user } = req.body;
     let users = new Users();

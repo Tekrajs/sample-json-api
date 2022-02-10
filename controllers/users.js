@@ -24,8 +24,7 @@ class Users {
     return user
       .save()
       .then(() => {
-        console.log("here");
-        return user.toAuthJSON();
+        return user.toUserData();
       })
       .catch((err) => {
         throw new Error(err.message);

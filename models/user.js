@@ -53,4 +53,13 @@ UserSchema.methods.toAuthJSON = function () {
     };
 };
 
+UserSchema.methods.toUserData = function () {
+    return {
+        username: this.username,
+        email: this.email,
+        createdAt: this.createdAt,
+        updatedAt:this.updatedAt
+    };
+};
+
 module.exports = mongoose.model('User', UserSchema);
