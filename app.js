@@ -9,7 +9,6 @@ const app = express();
 const isProduction = process.env.SERVER === 'production';
 
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/reason_digital');
-
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

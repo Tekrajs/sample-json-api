@@ -8,7 +8,8 @@ class Users {
       {
         username: true,
         email: true,
-        token: true
+        createdAt: true,
+        updatedAt: true
       }
     )
       .limit(limit)

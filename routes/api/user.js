@@ -1,8 +1,6 @@
 let router = require("express").Router();
 let Users = require("../../controllers/users");
 
-router.get("/login", async (req, res) => {});
-
 router.get("/users", async (req, res) => {
   try {
     let users = new Users();
@@ -15,7 +13,7 @@ router.get("/users", async (req, res) => {
   }
 });
 
-router.post("/users", async function (req, res, next) {
+router.post("/registration", async function (req, res, next) {
   try {
     let { user } = req.body;
     let users = new Users();
