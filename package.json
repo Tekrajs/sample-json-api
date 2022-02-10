@@ -1,0 +1,12 @@
+{
+  "name": "ReasonDigital",
+  "version": "1.0.0",
+  "description": "Sample api application",
+  "main": "index.js",
+  "repository": "https://github.com/Tekrajs/sample-json-api",
+  "author": "Tekrajs",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
