@@ -1,56 +1,39 @@
-let mongoose = require('mongoose'),
-    uniqueValidator = require('mongoose-unique-validator'),
-    crypto = require('crypto'),
-    verifier = require('../config').verifier,
-    jwt = require('jsonwebtoken');
+const User = require("../models/user");
+class Users {
+  constructor() {}
 
-var UserSchema = mongoose.Schema({
-    username: {
-        type: String,
-        lowercase: true,
-        unique: true,
-        required: [true, "can't be blank"],
-        match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
-        index: true
-    },
-    email: {
-        type: String,
-        lowercase: true,
-        unique: true,
-        required: [true, "can't be blank"],
-        match: [/\S+@\S+\.\S+/, 'is invalid'],
-        index: true
-    },
-    hash: String,
-    salt: String
-}, { timestamps: true });
+  async index(skip = 0, limit = 100) {
+    return await User.find(
+      {},
+      {
+        username: true,
+        email: true,
+        token: true
+      }
+    )
+      .limit(limit)
+      .skip(skip)
+      .lean()
+      .exec();
+  }
 
-UserSchema.plugin(uniqueValidator, { message: ' already in use. ' });
+  async create(userdata) {
+    let user = new User(userdata);
+    user.setPassword(userdata.password);
+    return user
+      .save()
+      .then(() => {
+        console.log("here");
+        return user.toAuthJSON();
+      })
+      .catch((err) => {
+        throw new Error(err.message);
+      });
+  }
 
-UserSchema.methods.validPassword = function (password) {
-    var hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-    return this.hash === hash;
-};
+  async update(id) {}
 
-UserSchema.methods.setPassword = function (password) {
-    this.salt = crypto.randomBytes(16).toString('hex');
-    this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-};
+  async delete(id) {}
+}
 
-UserSchema.methods.generateToken = function () {
-
-    return jwt.sign({
-        id: this._id,
-        username: this.username,
-    }, verifier, { expiresIn: 60 * 60 });
-};
-
-UserSchema.methods.toAuthJSON = function () {
-    return {
-        username: this.username,
-        email: this.email,
-        token: this.generateToken()
-    };
-};
-
-module.exports = mongoose.model('User', UserSchema);
+module.exports = Users;
