@@ -7,11 +7,15 @@
   "author": "Tekrajs",
   "license": "MIT",
   "scripts": {
-    "dev":"nodemon start.js",
-    "start" : "node start.js"
+    "dev": "nodemon start.js",
+    "start": "node start.js"
   },
   "dependencies": {
-    "express": "^4.17.2"
+    "crypto": "^1.0.1",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.1",
+    "mongoose-unique-validator": "^3.0.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.0",
