@@ -2,6 +2,12 @@ const User = require("../models/user");
 class Users {
   constructor() {}
 
+  /**
+   * Method to get all the users lists from the database
+   * @param {*} skip 
+   * @param {*} limit 
+   * @returns 
+   */
   async index(skip = 0, limit = 100) {
     return await User.find(
       {},
@@ -18,6 +24,11 @@ class Users {
       .exec();
   }
 
+  /**
+   * Method to register the user in the system
+   * @param {*} userdata 
+   * @returns 
+   */
   async create(userdata) {
     let user = new User(userdata);
     user.setPassword(userdata.password);

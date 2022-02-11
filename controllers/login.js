@@ -1,10 +1,16 @@
 require('../config/passport');
-let User = require("../models/user"),
   passport = require("passport");
 
 class Login {
   constructor() {}
 
+  /**
+   * 
+   * @param {*} req 
+   * @param {*} res 
+   * @param {*} next 
+   * @returns 
+   */
   async authenticate(req, res, next) {
     return new Promise((resolve, reject) => {
       passport.authenticate("apiStrategy", { session: false }, function (err, user, info) {
