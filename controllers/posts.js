@@ -2,7 +2,7 @@ const { getLiveData } = require("../agent");
 const Post = require("../models/post");
 class Posts {
   constructor() {
-    this.fetch_live_data = Boolean(process.env.FETCH_LIVE_DATA) || false;
+    this.fetch_live_data = (process.env.FETCH_LIVE_DATA==="true") || false;
   }
 
   async index(skip = 0, limit = 100) {

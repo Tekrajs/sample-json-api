@@ -14,7 +14,6 @@ describe("Retirieve all the post", () => {
       .expect("Content-Type", /json/)
       .then((response) => {
         expect(response.status).toEqual(expect.any(Number));
-        console.log(response.body)
       });
   });
 
