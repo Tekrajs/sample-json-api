@@ -1,6 +1,6 @@
 # Introduction
 
-Sample Json API was built to simulate an API server which response to the request from client. This API supports both mobile and web application. It uses Basic authentication and uses JWT to serving further request of the clients
+Sample Json API was built to simulate an API server which response to the request from client. This API supports both mobile and web application. It uses Basic authentication and uses JWT to serving further request of the clients. It is built using Node.js and express framework.
 # Setup
 
 ## Prerequisite
