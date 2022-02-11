@@ -42,6 +42,7 @@ describe("Retirieve all the post", () => {
       .then((response) => {
         expect(response.status).toEqual(expect.any(Number));
         expect(response.body.post).not.toBeUndefined()
+        expect.objectContaining({id:expect.any(Number)})
       });
   })
 
