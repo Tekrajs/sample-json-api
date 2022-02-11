@@ -6,7 +6,7 @@ class Users {
    * Method to get all the users lists from the database
    * @param {*} skip 
    * @param {*} limit 
-   * @returns 
+   * @returns {Array} Returns array of users lists
    */
   async index(skip = 0, limit = 100) {
     return await User.find(
@@ -27,7 +27,7 @@ class Users {
   /**
    * Method to register the user in the system
    * @param {*} userdata 
-   * @returns 
+   * @returns {json} Returns recently created user data
    */
   async create(userdata) {
     let user = new User(userdata);

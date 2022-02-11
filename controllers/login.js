@@ -6,10 +6,10 @@ class Login {
 
   /**
    * 
-   * @param {*} req 
+   * @param {Object} req 
    * @param {*} res 
    * @param {*} next 
-   * @returns 
+   * @returns {json} Returns user data along with jwt token
    */
   async authenticate(req, res, next) {
     return new Promise((resolve, reject) => {

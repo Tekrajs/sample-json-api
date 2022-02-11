@@ -5,6 +5,12 @@ class Posts {
     this.fetch_live_data = (process.env.FETCH_LIVE_DATA==="true") || false;
   }
 
+  /**
+   * 
+   * @param {*} skip 
+   * @param {*} limit 
+   * @returns {Array} Returns array of post data 
+   */
   async index(skip = 0, limit = 100) {
     if (this.fetch_live_data === true) {
       return await getLiveData({
@@ -20,6 +26,11 @@ class Posts {
     }
   }
 
+  /**
+   * 
+   * @param {Number} id 
+   * @returns {json} Returns single user data
+   */
   async show(id) {
     if (this.fetch_live_data === true) {
       return await getLiveData({
