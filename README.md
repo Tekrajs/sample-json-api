@@ -33,7 +33,7 @@ This project contains a worker file, which is build with the purpose of implemen
 
 By default it is set to true and the data are obtained from the third party api itself.
 
-If you want to enable synchronizing to database and serving data from the database, then for you can add `node worker.js` to crontab for periodic ( I have not used node cron as I don't like to depend on it ). While addind to crontab please don't forget the path to take into consideration for updating in accordance to your application path.
+If you want to enable synchronizing to database and serving data from the database, then for you can add `node worker.js` to crontab for periodic ( I have not used node cron as I don't like to depend on it ). While adding to crontab please don't forget the path to take into consideration for updating in accordance to your application path.
 
 Simply for simulation here, you can do `yarn run sync` to populate data
 
