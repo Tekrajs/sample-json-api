@@ -25,9 +25,8 @@ getLiveData(options)
       }).catch((e) => {
         console.log(e);
       });
-
-      console.log(reply);
     }
+    process.exit(0);
   })
   .catch((err) => {
     console.log(err);

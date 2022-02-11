@@ -9,7 +9,8 @@
   "scripts": {
     "test":"jest --watchAll",
     "dev": "nodemon start.js",
-    "start": "node start.js"
+    "start": "node start.js",
+    "sync":"node worker.js"
   },
   "dependencies": {
     "body-parser": "^1.19.1",

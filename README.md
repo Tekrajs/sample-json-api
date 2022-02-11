@@ -29,7 +29,13 @@ yarn start
 
 # Worker Usage
 
-This project contains a worker file, which is build with the purpose of implementation of periodic synchronization of data from the third party api `https://dinotest.wpengine.com/wp-json/wp/v2/posts` . The project is availabe with the option to fetch data directly from the above api or from the data saved from database. For that an environment variable FETCH_LIVE_DATA is used.
+This project contains a worker file, which is build with the purpose of implementation of periodic synchronization of data from the third party api `https://dinotest.wpengine.com/wp-json/wp/v2/posts` . The project is availabe with the option to fetch data directly from the above api or from the data saved from database. For that an environment variable `FETCH_LIVE_DATA` is used.
+
+By default it is set to true and the data are obtained from the third party api itself.
+
+If you want to enable synchronizing to database and serving data from the database, then for you can add `node worker.js` to crontab for periodic ( I have not used node cron as I don't like to depend on it ). While addind to crontab please don't forget the path to take into consideration for updating in accordance to your application path.
+
+Simply for simulation here, you can do `yarn run sync` to populate data
 
 ## Endpoints
 Currently there are five endpoints available, for user registration, for retrieving users, for loging users, for getting posts and for getting posts details.
