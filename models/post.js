@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 let postSchema = mongoose.Schema(
   {
-    ref_id: {type:Number, index:true},
+    _id: Number,
     date: Date,
     date_gmt: Date,
     guid: {},
     modified: Date,
     modified_gmt: Date,
-    slug: String,
+    slug: {type:String, index:true},
     status: String,
     type: String,
     link: String,

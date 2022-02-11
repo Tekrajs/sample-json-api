@@ -1,7 +1,7 @@
 let router = require("express").Router();
 let Users = require("../../controllers/users");
 
-router.get("/users", async (req, res) => {
+router.get("/users", auth.required, async (req, res) => {
   try {
     let users = new Users();
     return res.status(200).json({ error: false, users: await users.index(0, 100) });
