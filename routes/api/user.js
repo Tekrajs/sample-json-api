@@ -1,5 +1,6 @@
 let router = require("express").Router();
 let Users = require("../../controllers/users");
+const auth = require('../middlewares/auth')
 
 router.get("/users", auth.required, async (req, res) => {
   try {
